@@ -175,54 +175,5 @@ public class RankManager {
         return ps;
     }
 
-    //Wanted Level:
 
-    public static void setWantedLevel(Player player, int level) throws SQLException {
-        PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("UPDATE users_locked SET locked_wanted="+level+" WHERE uuid = '"+player.getUniqueId()+"'");
-        stmt.executeUpdate();
-    }
-
-    public static int getWantedLevel(Player player) throws SQLException {
-        PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("SELECT locked_wanted FROM users_locked WHERE uuid = '"+player.getUniqueId()+"' LIMIT 1");
-        ResultSet set = stmt.executeQuery();
-        set.next();
-        return set.getInt("locked_wanted");
-    }
-
-    public static String wantedLevelParser(int level){
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.valueOf(level));
-        sb.append("⋆");
-        return sb.toString();
-    }
-
-    //Guard Level:
-    //0=none, 1=guard, 2=warden
-    public static void setGuardLevel(Player player, int level) throws SQLException {
-        PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("UPDATE users_locked SET locked_guard="+level+" WHERE uuid = '"+player.getUniqueId()+"'");
-        stmt.executeUpdate();
-    }
-
-    public static int getGuardLevel(Player player) throws SQLException {
-        PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("SELECT locked_guard FROM users_locked WHERE uuid = '"+player.getUniqueId()+"' LIMIT 1");
-        ResultSet set = stmt.executeQuery();
-        set.next();
-        return set.getInt("locked_guard");
-    }
-
-    public static String guardLevelParser(int level){
-        String s;
-        switch (level){
-            case 1:
-                s="✵";
-                break;
-            case 2:
-                s="❈";
-                break;
-            default:
-                s="";
-                break;
-        }
-        return s;
-    }
 }

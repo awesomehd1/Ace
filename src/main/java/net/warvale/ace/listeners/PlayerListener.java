@@ -4,6 +4,7 @@ import net.warvale.ace.Main;
 import net.warvale.ace.permissions.PermissionsManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -11,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PlayerListener {
+public class PlayerListener implements Listener {
     private Main plugin;
     private PermissionsManager pm;
     public PlayerListener(Main plugin, PermissionsManager pm){

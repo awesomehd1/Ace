@@ -2,3 +2,6 @@ name: Ace
 author: AAces
 main: net.warvale.ace.Main
 version: 1.0
+commands:
+  chatformat:
+    description: Toggle whether or not Ace effects chat messages.

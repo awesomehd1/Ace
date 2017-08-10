@@ -1,5 +1,6 @@
 package net.warvale.ace;
 
+import net.warvale.ace.commands.CommandHandler;
 import net.warvale.ace.listeners.PlayerListener;
 import net.warvale.ace.permissions.PermissionsManager;
 import net.warvale.ace.ranks.RankListener;
@@ -12,6 +13,7 @@ import java.util.logging.Level;
 public class Main extends JavaPlugin {
     private static Main instance;
     private static PermissionsManager pm;
+    private CommandHandler cmds;
     private SQLConnection db;
 
     @Override
@@ -36,6 +38,8 @@ public class Main extends JavaPlugin {
         }
         pm = new PermissionsManager(this);
         loadConfiguration();
+        cmds = new CommandHandler(this);
+        cmds.registerCommands();
     }
 
     public void loadConfiguration() {

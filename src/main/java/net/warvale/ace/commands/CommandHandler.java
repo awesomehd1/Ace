@@ -112,11 +112,8 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
      * Register all the commands.
      */
     public void registerCommands() {
-
-        // Admin
         cmds.add(new RankCommand());
-        // Basic
-
+        cmds.add(new ChatFormat(plugin));
 
         for (AbstractCommand cmd : cmds) {
             PluginCommand pCmd = plugin.getCommand(cmd.getName());

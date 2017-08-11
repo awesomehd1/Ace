@@ -4,4 +4,6 @@ main: net.warvale.ace.Main
 version: 1.0
 commands:
   chatformat:
-    description: Toggle whether or not Ace effects chat messages.
+    description: Toggle whether or not Ace effects chat messages
+  rank:
+    description: All commands involving ranks

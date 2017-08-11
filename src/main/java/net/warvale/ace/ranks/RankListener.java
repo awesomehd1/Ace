@@ -16,7 +16,7 @@ public class RankListener implements Listener {
     }
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event){
-        if(plugin.getConfig().getBoolean("chatformat")){
+        if(plugin.getConfig().getString("chatformat").equals("true")){
             Player player = event.getPlayer();
             String message = event.getMessage();
             event.setCancelled(true);

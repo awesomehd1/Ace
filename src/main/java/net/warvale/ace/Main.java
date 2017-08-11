@@ -30,6 +30,7 @@ public class Main extends JavaPlugin {
     }
 
     private void init(){
+        loadConfiguration();
         db = new SQLConnection(getConfig().getString("hostname"), getConfig().getInt("port"), getConfig().getString("database"), getConfig().getString("username"), getConfig().getString("password"));
         try {
             db.openConnection(); } catch(Exception e) {
@@ -37,7 +38,6 @@ public class Main extends JavaPlugin {
             return;
         }
         pm = new PermissionsManager(this);
-        loadConfiguration();
         cmds = new CommandHandler(this);
         cmds.registerCommands();
     }

@@ -59,7 +59,7 @@ public class RankManager {
     }
     //Creates a rank
     public static void createRank(String name) throws SQLException {
-        PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("INSERT INTO `ranks_locked`(`name`, `prefix`, `suffix`, `color`) VALUES ('"+name+"',' ',' ','&f')");
+        PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("INSERT INTO `ranks_locked`(`name`, `permissions`, `prefix`, `suffix`, `color`) VALUES ('"+name+"',' ',' ',' ','&f')");
         stmt.executeUpdate();
     }
     //Deletes a rank (Can not be undone)

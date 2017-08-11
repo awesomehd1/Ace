@@ -2,6 +2,7 @@ package net.warvale.ace.permissions;
 
 import net.warvale.ace.Main;
 import net.warvale.ace.ranks.RankManager;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
@@ -30,7 +31,7 @@ public class PermissionsManager {
         try {
             for (String rank : RankManager.getAllRanks()){
                 for (String permission : RankManager.getPermissions(RankManager.getRankId(rank))){
-                    attachment.setPermission(permission, true);
+                    if(!(StringUtils.isEmpty(permission) || permission.equals(" "))){attachment.setPermission(permission, true);}
                 }
             }
         } catch (SQLException e) {

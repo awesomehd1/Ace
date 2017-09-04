@@ -20,7 +20,7 @@ public class RankManager {
         try{
             PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS users(uuid int(36) NOT NULL PRIMARY KEY, name text, network_rank int(11) DEFAULT 0)");
             stmt.executeUpdate();
-            PreparedStatement stmtT = plugin.getDb().getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS ranks(id int(36) NOT NULL AUTO_INCREMENT PRIMARY KEY, name text, permissions text, prefix text, suffix text, color text)");
+            PreparedStatement stmtT = plugin.getDb().getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS ranks(id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, name text, permissions text, prefix text, suffix text, color text)");
             stmtT.executeUpdate();
         } catch(SQLException e){
             e.printStackTrace();

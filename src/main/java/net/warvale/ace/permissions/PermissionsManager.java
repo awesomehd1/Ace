@@ -12,10 +12,11 @@ import java.util.UUID;
 
 public class PermissionsManager {
     private Main plugin;
+    public HashMap<UUID, PermissionAttachment> playerPermissions;
     public PermissionsManager(Main plugin){
         this.plugin = plugin;
+        playerPermissions = new HashMap<>();
     }
-    public HashMap<UUID, PermissionAttachment> playerPermissions = new HashMap<>();
 
     public void setup(Player player){
         if(playerPermissions.containsKey(player.getUniqueId())){

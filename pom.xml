@@ -129,11 +129,6 @@
             <artifactId>jooq</artifactId>
             <version>3.9.2</version>
         </dependency>
-        <dependency>
-            <groupId>net.warvale.ace</groupId>
-            <artifactId>Ace</artifactId>
-        </dependency>
-
 
     </dependencies>
 

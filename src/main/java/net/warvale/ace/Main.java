@@ -4,6 +4,7 @@ import net.warvale.ace.commands.CommandHandler;
 import net.warvale.ace.listeners.PlayerListener;
 import net.warvale.ace.permissions.PermissionsManager;
 import net.warvale.ace.ranks.RankListener;
+import net.warvale.ace.ranks.RankManager;
 import net.warvale.ace.sql.SQLConnection;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +38,7 @@ public class Main extends JavaPlugin {
             getLogger().log(Level.WARNING, "Could not establish connection to database, exception: "+e);
             return;
         }
+        RankManager.tryCreateTables();
         pm = new PermissionsManager(this);
         cmds = new CommandHandler(this);
         cmds.registerCommands();

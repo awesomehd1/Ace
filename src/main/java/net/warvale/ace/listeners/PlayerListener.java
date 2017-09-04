@@ -25,11 +25,11 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         //Put player into database
         try {
-            PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("SELECT * FROM users_locked WHERE uuid = '"+player.getUniqueId().toString()+"' LIMIT 1");
+            PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("SELECT * FROM users WHERE uuid = '"+player.getUniqueId().toString()+"' LIMIT 1");
             ResultSet set = stmt.executeQuery();
             if (!set.next()) {
                 stmt.close();
-                stmt = plugin.getDb().getConnection().prepareStatement("INSERT INTO users_locked (uuid, name) VALUES ('"+player.getUniqueId().toString()+"', '"+player.getName()+"')");
+                stmt = plugin.getDb().getConnection().prepareStatement("INSERT INTO users (uuid, name) VALUES ('"+player.getUniqueId().toString()+"', '"+player.getName()+"')");
                 stmt.execute();
                 stmt.close();
             }

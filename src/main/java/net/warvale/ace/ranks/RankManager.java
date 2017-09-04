@@ -11,14 +11,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+@SuppressWarnings("all")
 public class RankManager {
     private static Main plugin = Main.get();
     private static PermissionsManager pm = new PermissionsManager(plugin);
     //Creates the required tables if they do not exist
     public static void tryCreateTables(){
         try{
-            PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS users(uuid int(36) NOT NULL PRIMARY KEY, name text, network_rank int(11) DEFAULT 0)");
+            PreparedStatement stmt = plugin.getDb().getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS users(uuid varchar(36) NOT NULL PRIMARY KEY, name text, network_rank int(11) DEFAULT 0)");
             stmt.executeUpdate();
             PreparedStatement stmtT = plugin.getDb().getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS ranks(id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, name text, permissions text, prefix text, suffix text, color text)");
             stmtT.executeUpdate();

@@ -2,6 +2,8 @@ package net.warvale.ace.listeners;
 
 import net.warvale.ace.Main;
 import net.warvale.ace.permissions.PermissionsManager;
+import net.warvale.ace.ranks.RankManager;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -39,6 +41,10 @@ public class PlayerListener implements Listener {
             e.printStackTrace();
         }
         pm.setup(player);
+        try {
+            String prfx = RankManager.getRankPrefix(player);
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&',prfx+" "+RankManager.getRankNameColor(player))+player.getName());
+        }catch(Exception err) {}
     }
 
     @EventHandler

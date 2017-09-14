@@ -30,12 +30,13 @@ public class Main extends JavaPlugin {
         pm.clear();
     }
 
-    private void init(){
+    private void init() {
         loadConfiguration();
         db = new SQLConnection(getConfig().getString("hostname"), getConfig().getInt("port"), getConfig().getString("database"), getConfig().getString("username"), getConfig().getString("password"));
         try {
-            db.openConnection(); } catch(Exception e) {
-            getLogger().log(Level.WARNING, "Could not establish connection to database, exception: "+e);
+            db.openConnection();
+        } catch (Exception e) {
+            getLogger().log(Level.WARNING, "Could not establish connection to database, exception: " + e);
             return;
         }
         RankManager.tryCreateTables();

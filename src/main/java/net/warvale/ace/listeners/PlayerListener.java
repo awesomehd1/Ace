@@ -17,6 +17,7 @@ import java.sql.SQLException;
 public class PlayerListener implements Listener {
     private Main plugin;
     private PermissionsManager pm;
+
     public PlayerListener(Main plugin, PermissionsManager pm){
         this.plugin = plugin;
         this.pm = pm;
@@ -44,7 +45,8 @@ public class PlayerListener implements Listener {
         try {
             String prfx = RankManager.getRankPrefix(player);
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&',prfx+" "+RankManager.getRankNameColor(player))+player.getName());
-        }catch(Exception err) {}
+        }catch(Exception err) {err.printStackTrace();}
+
     }
 
     @EventHandler

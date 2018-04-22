@@ -1,6 +1,6 @@
-name: Ace
-author: AAces
-main: net.warvale.ace.Main
+name: Ranks
+author: awesomehd1
+main: net.awesomehd1.Ranks.Main
 version: 1.0
 commands:
   chatformat:
